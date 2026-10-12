@@ -14,3 +14,5 @@
 **UNIQUE CONSTRAINT**: ON patient_id column. Prevents duplicate entries and data integrity across patient lookups, appointments and medical histroy.
 
 # Environment Loading module, called and run whenever the environmental variable is needed in the program.
+
+# pool.js module. Utilise pg library Pool class to create an object with persistantly opened connections.
