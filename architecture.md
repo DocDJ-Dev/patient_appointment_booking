@@ -11,4 +11,6 @@
 
 ## 3. Unique Patient Identification
 
-**UNIQUE CONSTRAIN**: ON patient_id column. Prevents duplicate entries and data integrity across patient lookups, appointments and medical histroy.
+**UNIQUE CONSTRAINT**: ON patient_id column. Prevents duplicate entries and data integrity across patient lookups, appointments and medical histroy.
+
+# Environment Loading module, called and run whenever the environmental variable is needed in the program.
