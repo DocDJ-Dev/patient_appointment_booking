@@ -18,3 +18,13 @@
 # pool.js module. Utilise pg library Pool class to create an object with persistantly opened connections.
 
 # migrate.js module. Runs even before the program. To set up the database based on schemas.
+
+## Error handling foundations:
+
+# error.js module has errors classes; Runs whenever an error is thrown using a class in it.
+
+# asyncHandler module; Wraps route handlers into promises; Calls next(err) if the promise reject;
+
+# notFound module; handles errors for routes not matching. Runs after all routes middlewares.
+
+# errorHandler module; Handles all errors that calls next; Is the last middleware to run.
