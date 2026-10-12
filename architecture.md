@@ -30,3 +30,5 @@
 # errorHandler module; Handles all errors that calls next; Is the last middleware to run.
 
 # requestId module; generate random requestId; runs on every request and attach it to req.requestId.
+
+# rateLimiter module; Counts number of request from every client; throw TooManyRequestsError if exceed 10 and waits reset after 60 seconds;
