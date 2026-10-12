@@ -16,3 +16,5 @@
 # Environment Loading module, called and run whenever the environmental variable is needed in the program.
 
 # pool.js module. Utilise pg library Pool class to create an object with persistantly opened connections.
+
+# migrate.js module. Runs even before the program. To set up the database based on schemas.
