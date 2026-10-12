@@ -1,4 +1,4 @@
-const { TooManyRequestsError } = require("../utils/errors");
+const { TooManyRequestsError } = require("../utils/error");
 
 const requestCounts = {};
 const WINDOW_MS = 60000;
