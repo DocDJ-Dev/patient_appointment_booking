@@ -34,3 +34,5 @@
 # rateLimiter module; Counts number of request from every client; throw TooManyRequestsError if exceed 10 and waits reset after 60 seconds;
 
 # app module. Has all the middlewares in the order of exercution;
+
+# server module; initiate the program; Address uncaughtException and unhandledRejection errors; Ensure graceful shutdown of the server on termination or restart.
