@@ -18,11 +18,22 @@ function errorHandler(err, req, res, next) {
 
   const isProduction = config.environment === "production";
 
-  const message =
+  let message =
     err.isOperational || !isProduction
       ? err.message
       : "Something went wrong. Please try again later.";
 
+  if (err.code === "28P01") {
+    statusCode = 503;
+    code = "INCORRECT_PASSWORD";
+    message = "DB Password authentication failed";
+  }
+
+  if (err.code === "ECONNREFUSED" || err.code === "ETIMEDOUT") {
+    statusCode = 503;
+    code = "CONNECTION_FAILED";
+    message = "DB connection failed";
+  }
   if (err.code === "23505") {
     let fieldName = "field";
     let fieldValue = "";
