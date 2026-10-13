@@ -36,3 +36,5 @@
 # app module. Has all the middlewares in the order of exercution;
 
 # server module; initiate the program; Address uncaughtException and unhandledRejection errors; Ensure graceful shutdown of the server on termination or restart.
+
+# auth module; runs for every route except /health; checks the authorisation from req headers; compare with already stored tokens; if matches, it attaches user object with role to req;
