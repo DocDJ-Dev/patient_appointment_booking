@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require("./routes/health");
+const routes = require("./routes/index");
 const helmet = require("helmet");
 const cors = require("cors");
 const requestId = require("./middleware/requestId");

@@ -4,7 +4,7 @@ const asyncHandler = require("../utils/asyncHandler");
 const pool = require("../db/pool");
 
 router.get(
-  "/health",
+  "/",
   asyncHandler(async (req, res) => {
     const client = await pool.connect();
 
