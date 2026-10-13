@@ -12,11 +12,56 @@ const getAllDepartments = asyncHandler(async (req, res, next) => {
     });
   }
 
-  res.status(200).json({
+  res.json({
     success: true,
     departments: data.departments,
     count: data.count,
   });
 });
 
-module.exports = { getAllDepartments };
+const getDepartmentById = asyncHandler(async (req, res, next) => {
+  const data = await departmentsRepo.findById(req.validatedId);
+
+  res.json({ success: true, department: data.department });
+});
+
+const createDepartment = asyncHandler(async (req, res, next) => {
+  const { name } = req.body;
+
+  const data = await departmentsRepo.create(name);
+
+  res.status(201).json({
+    success: true,
+    department: data.department,
+    message: "Department created successfully",
+  });
+});
+
+const updateDepartment = asyncHandler(async (req, res, next) => {
+  const { name } = req.body;
+  const data = await departmentsRepo.update(req.validatedId, name);
+
+  res.status(201).json({
+    success: true,
+    department: data.department,
+    message: "Department updated successfully",
+  });
+});
+
+const deleteDepartment = asyncHandler(async (req, res, next) => {
+  const data = await departmentsRepo.deleteById(req.validatedId);
+
+  res.json({
+    success: true,
+    department: data.department,
+    message: "Department deleted successfully",
+  });
+});
+
+module.exports = {
+  getAllDepartments,
+  getDepartmentById,
+  createDepartment,
+  updateDepartment,
+  deleteDepartment,
+};
