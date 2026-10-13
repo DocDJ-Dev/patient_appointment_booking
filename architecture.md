@@ -46,3 +46,5 @@
 # validateBody module; Validate parsed body checking for the presence of required fields; Its a gate for valid body only;
 
 # the departments pipeline: route >>>controller >>> repository >>>> database and reverse; Applies for all routes endpoints; For scalabily;
+
+# index module. The central API routing hub; Register public endpoint before applying auth module for security against protected routes.
