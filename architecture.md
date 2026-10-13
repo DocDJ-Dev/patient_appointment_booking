@@ -40,3 +40,7 @@
 # auth module; runs for every route except /health; checks the authorisation from req headers; compare with already stored tokens; if matches, it attaches user object with role to req;
 
 # authorize module; Checks the require roles, compare with req.user.role; Its a selective gate for allowed roles.
+
+# validateId module; Ensure valid presence and type of id and attach to req as validatedId;
+
+# validateBody module; Validate parsed body checking for the presence of required fields; Its a gate for valid body only;
