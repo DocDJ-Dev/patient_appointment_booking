@@ -27,7 +27,6 @@ function envValidator() {
     dbPort: process.env.DB_PORT,
     serverPort: process.env.PORT,
     environment: process.env.NODE_ENV,
-    TOKENS: process.env.TOKENS,
   };
 }
 

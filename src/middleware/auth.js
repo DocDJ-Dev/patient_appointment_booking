@@ -1,6 +1,12 @@
 const config = require("../config/env");
 const { UnauthorizedError } = require("../utils/error");
 
+const TOKENS = {
+  "admin-token-123": { role: "admin", name: "Mr James" },
+  "doctor-token-456": { role: "doctor", name: "Dr Desire" },
+  "nurse-token-789": { role: "nurse", name: "Sister Ndleve" },
+};
+
 function auth(req, res, next) {
   const authHeader = req.headers.authorization;
 
@@ -11,7 +17,7 @@ function auth(req, res, next) {
   }
 
   const token = authHeader.split(" ")[1];
-  const user = config.TOKENS[token];
+  const user = TOKENS[token];
 
   if (!user) throw new UnauthorizedError("Unauthorized: Invalid Token");
 
