@@ -44,3 +44,5 @@
 # validateId module; Ensure valid presence and type of id and attach to req as validatedId;
 
 # validateBody module; Validate parsed body checking for the presence of required fields; Its a gate for valid body only;
+
+# the departments pipeline: route >>>controller >>> repository >>>> database and reverse; Applies for all routes endpoints; For scalabily;
