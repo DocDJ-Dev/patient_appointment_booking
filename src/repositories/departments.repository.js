@@ -1,5 +1,5 @@
 const pool = require("../db/pool");
-const { NotFoundError, ValidationError } = require("../utils/error");
+const { NotFoundError } = require("../utils/error");
 
 class DepartmentsRepository {
   async findall() {
