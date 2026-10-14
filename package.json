@@ -4,7 +4,9 @@
   "description": "Project: Patient appointment booking",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node scripts/seed.js",
+    "seed:bulk": "node scripts/seed-bulk.js"
   },
   "repository": {
     "type": "git",
