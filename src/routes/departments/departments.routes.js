@@ -17,7 +17,6 @@ router.patch(
   "/:id",
   authorize("admin", "doctor"),
   validateId,
-  validateBody("name"),
   departmentsController.updateDepartment,
 );
 router.delete(

@@ -10,14 +10,13 @@ router.get("/:id", validateId, doctorsController.getDoctorById);
 router.post(
   "/",
   authorize("admin"),
-  validateBody("name"),
+  validateBody("name", "age", "gender", "specialty"),
   doctorsController.createDoctor,
 );
 router.patch(
   "/:id",
   authorize("admin"),
   validateId,
-  validateBody("name"),
   doctorsController.updateDoctor,
 );
 router.delete(
