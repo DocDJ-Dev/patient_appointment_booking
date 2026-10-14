@@ -39,7 +39,7 @@ function errorHandler(err, req, res, next) {
     let fieldValue = "";
 
     if (err.detail) {
-      const match = err.detail.match(/Key \((.*?)\)/);
+      const match = err.detail.match(/Key \((.*?)\)=\((.*?)\)/);
       if (match) {
         fieldName = match[1];
         fieldValue = match[2];
