@@ -48,3 +48,5 @@
 # the departments pipeline: route >>>controller >>> repository >>>> database and reverse; Applies for all routes endpoints; For scalabily;
 
 # index module. The central API routing hub; Register public endpoint before applying auth module for security against protected routes.
+
+# The GET appointments for a specific patient and POST vitals for a specific patient routes pipes through the patient routes to target the patient easly.
