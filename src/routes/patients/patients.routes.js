@@ -5,6 +5,7 @@ const validateBody = require("../../middleware/validateBody");
 const patientsController = require("../../controllers/patients.controllers");
 const authorize = require("../../middleware/authorize");
 const appointmentsController = require("../../controllers/appointments.controller");
+const vitalsController = require("../../controllers/vitals.controllers");
 
 router.get("/", patientsController.getAllPatients);
 router.get("/:id", validateId, patientsController.getPatientById);
@@ -31,6 +32,14 @@ router.delete(
   authorize("admin"),
   validateId,
   patientsController.deletePatient,
+);
+
+router.post(
+  "/:id/vitals",
+  authorize("doctor", "nurse"),
+  validateId,
+  validateBody("HR", "BP", "SPO2"),
+  vitalsController.createPatientVitals,
 );
 
 module.exports = router;
