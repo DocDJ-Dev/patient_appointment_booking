@@ -42,4 +42,7 @@ router.post(
   vitalsController.createPatientVitals,
 );
 
+router.get("/:id/vitals/latest", validateId, vitalsController.latestVitals);
+router.get("/:id/vitals", validateId, vitalsController.allVitals);
+
 module.exports = router;

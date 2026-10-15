@@ -40,4 +40,20 @@ const createPatientVitals = asyncHandler(async (req, res, next) => {
   });
 });
 
-module.exports = { createPatientVitals };
+const allVitals = asyncHandler(async (req, res, next) => {
+  const result = await vitalsRepo.getVitals(req.validatedId);
+
+  res.json({ sucess: true, vitals: result.vitals });
+});
+
+const latestVitals = asyncHandler(async (req, res, next) => {
+  const result = await vitalsRepo.getLatestVitals(req.validatedId);
+
+  res.json({ sucess: true, vitals: result.vitals });
+});
+
+module.exports = {
+  createPatientVitals,
+  latestVitals,
+  allVitals,
+};

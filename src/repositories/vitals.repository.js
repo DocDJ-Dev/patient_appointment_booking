@@ -39,6 +39,50 @@ class VitalRepository {
       await client.release();
     }
   }
+
+  async getVitals(patientId) {
+    const existing = await pool.query(
+      "SELECT * FROM patients WHERE patient_id = $1",
+      [patientId],
+    );
+
+    if (existing.rows.length === 0) {
+      throw new NotFoundError(`Patient with Id ${patientId} not found.`);
+    }
+
+    const result = await pool.query(
+      "SELECT * FROM vitals WHERE patient_id = $1 ORDER BY recorded_at DESC",
+      [patientId],
+    );
+
+    if (result.rows.length === 0) {
+      return { vitals: "No vitals recorded for this patient" };
+    }
+
+    return { vitals: result.rows };
+  }
+
+  async getLatestVitals(patientId) {
+    const existing = await pool.query(
+      "SELECT * FROM patients WHERE patient_id = $1",
+      [patientId],
+    );
+
+    if (existing.rows.length === 0) {
+      throw new NotFoundError(`Patient with Id ${patientId} not found.`);
+    }
+
+    const result = await pool.query(
+      "SELECT * FROM vitals WHERE patient_id = $1 ORDER BY recorded_at DESC LIMIT 1",
+      [patientId],
+    );
+
+    if (result.rows.length === 0) {
+      return { vitals: "No vitals recorded for this patient" };
+    }
+
+    return { vitals: result.rows[0] };
+  }
 }
 
 module.exports = new VitalRepository();
