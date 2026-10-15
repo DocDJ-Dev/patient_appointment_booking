@@ -22,7 +22,7 @@ class VitalRepository {
       const query =
         "INSERT INTO vitals (patient_id, heart_rate, blood_pressure, oxygen_level, alert_level) VALUES ($1, $2, $3, $4, $5) RETURNING *";
 
-      const result = await pool.query(query, [
+      const result = await client.query(query, [
         patientId,
         HR,
         BP,
